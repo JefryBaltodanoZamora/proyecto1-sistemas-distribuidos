@@ -1,5 +1,7 @@
 #include <dirent.h>
 #include <stdio.h>
+#include <sys/stat.h>
+#include <time.h>
 
 int main(int argc, char *argv[])
 {
@@ -42,12 +44,15 @@ int main(int argc, char *argv[])
 
     DIR *d;
     struct dirent *dir;
+    struct stat filestat;
     d = opendir(directoryName);
     if (d)
     {
         while ((dir = readdir(d)) != NULL)
         {
             printf("%s\n", dir->d_name);
+            stat(dir->d_name,&filestat);
+            printf(" File access time %s", ctime(&filestat.st_atime));
         }
         closedir(d);
     }

@@ -1,7 +1,17 @@
 #include <dirent.h>
 #include <stdio.h>
 #include <sys/stat.h>
+#include <sys/types.h>
+#include <unistd.h>
 #include <time.h>
+
+int fsize(FILE *fp){
+    int prev=ftell(fp);
+    fseek(fp, 0L, SEEK_END);
+    int sz=ftell(fp);
+    fseek(fp,prev,SEEK_SET); //go back to where we were
+    return sz;
+}
 
 int main(int argc, char *argv[])
 {
@@ -30,13 +40,13 @@ int main(int argc, char *argv[])
         if (ipAddress == NULL)
         {
             runningMode = 1;
-            printf("Running in 'Server' mode. \n");
+            printf("Running in 'Server' mode. \n\n");
             printf("The directory's name is: %s \n", directoryName); 
         }
         else
         {
             runningMode = 2;
-            printf("Running in 'Client' mode. \n");
+            printf("Running in 'Client' mode. \n\n");
             printf("The directory's name is: %s \n", directoryName); 
             printf("The IP address is: %s \n", ipAddress);
         }
@@ -50,9 +60,13 @@ int main(int argc, char *argv[])
     {
         while ((dir = readdir(d)) != NULL)
         {
-            printf("%s\n", dir->d_name);
             stat(dir->d_name,&filestat);
-            printf(" File access time %s", ctime(&filestat.st_atime));
+            FILE *fp;
+            fp=fopen(dir->d_name, "r");      
+            int a = fsize(fp);
+            printf("\nFile name is: %s\n", dir->d_name);
+            printf("File size is: %d \n", a);
+            printf("File modified data is: %s", ctime(&filestat.st_atime));
         }
         closedir(d);
     }

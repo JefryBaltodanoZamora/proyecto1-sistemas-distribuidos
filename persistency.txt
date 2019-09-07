@@ -1,8 +1,9 @@
-name:.,size:-1,datemodified:Sat Sep 07 13:48:03 2019
-name:..,size:-1,datemodified:Sat Sep 07 13:26:44 2019
-name:.git,size:-1,datemodified:Sat Sep 07 13:25:54 2019
-name:persistency.txt,size:166,datemodified:Sat Sep 07 13:48:25 2019
-name:sincronizador.c,size:2596,datemodified:Sat Sep 07 13:47:58 2019
-name:sincronizador.exe,size:149532,datemodified:Sat Sep 07 13:48:03 2019
-name:syncFolder,size:-1,datemodified:Sat Sep 07 13:25:54 2019
+name:.,size:-1,datemodified:Sat Sep 07 14:48:46 2019
+name:..,size:-1,datemodified:Sat Sep 07 14:29:36 2019
+name:.git,size:-1,datemodified:Sat Sep 07 14:48:47 2019
+name:persistency.c,size:2125,datemodified:Sat Sep 07 14:48:41 2019
+name:persistency.txt,size:234,datemodified:Sat Sep 07 14:48:48 2019
+name:sincronizador.c,size:1386,datemodified:Sat Sep 07 14:01:10 2019
+name:sincronizador.exe,size:150811,datemodified:Sat Sep 07 14:48:46 2019
+name:syncFolder,size:-1,datemodified:Sat Sep 07 14:27:52 2019
 name:test 2.json,size:8,datemodified:Sat Sep 07 13:22:52 2019

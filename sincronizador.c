@@ -1,3 +1,4 @@
+#include <dirent.h>
 #include <stdio.h>
 
 int main(int argc, char *argv[])
@@ -24,19 +25,32 @@ int main(int argc, char *argv[])
         directoryName = argv[1];
         ipAddress = argv[2]; 
         
-        if (ipAddress != NULL)
+        if (ipAddress == NULL)
         {
             runningMode = 1;
             printf("Running in 'Server' mode. \n");
             printf("The directory's name is: %s \n", directoryName); 
-            printf("The IP address is: %s \n", ipAddress);
         }
         else
         {
             runningMode = 2;
             printf("Running in 'Client' mode. \n");
             printf("The directory's name is: %s \n", directoryName); 
+            printf("The IP address is: %s \n", ipAddress);
         }
     }
+
+    DIR *d;
+    struct dirent *dir;
+    d = opendir(directoryName);
+    if (d)
+    {
+        while ((dir = readdir(d)) != NULL)
+        {
+            printf("%s\n", dir->d_name);
+        }
+        closedir(d);
+    }
+
    return 0;
 }
